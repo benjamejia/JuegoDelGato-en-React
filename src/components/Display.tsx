@@ -39,19 +39,22 @@ export function Display({ turno, winner, nombreJuego, cronometro, gameStarted,ta
                         {nombreJuego}
                     </h1>
                 )}
-                {tableroLleno && (
-                    <div className="bg-black/60 backdrop-blur-sm p-4 rounded-xl border border-white/20 shadow-xl transform scale-110">
-                        <h1 className="text-1xl font-arcade text-white text-shadow-lg">
-                            ¡Nigun Ganador!
-                        </h1>
-                    </div>
-                )}
-                {winner && (
+                {winner ? (
                     <div className="bg-black/60 backdrop-blur-sm p-4 rounded-xl border border-white/20 shadow-xl transform scale-110">
                         <h1 className="text-2xl font-arcade text-green-400 text-shadow-lg">
-                            ¡Ganador:{winner}!
+                            ¡Ganador: {winner}! 
                         </h1>
                     </div>
+                    ) : (
+                    tableroLleno ? (
+                        <div className="bg-black/60 backdrop-blur-sm p-4 rounded-xl border border-white/20 shadow-xl transform scale-110">
+                            <h1 className="text-1xl font-arcade text-white text-shadow-lg">
+                                ¡Ningún Ganador! 
+                            </h1>
+                        </div>
+                    ) : (
+                        ""
+                    )
                 )}
             </div>
         </div>
